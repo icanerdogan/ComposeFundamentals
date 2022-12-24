@@ -1,20 +1,14 @@
 package com.example.composefundamentals
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -29,7 +23,18 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeFundamentalsTheme {
-                Greeting("Android")
+                Column(
+                    modifier = Modifier
+                        .background(color = Color.LightGray)
+                        .fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    Greeting("Ibrahim")
+                    Greeting("Can")
+                    Greeting("Erdogan")
+                }
+
             }
         }
     }
@@ -47,8 +52,8 @@ fun Greeting(name: String) {
             .background(color = Color.Yellow)
             .border(2.dp, color = Color.Green)
             .padding(10.dp)
-            .fillMaxWidth(0.5f)
-            .fillMaxHeight(0.3f)
+            .fillMaxWidth(0.8f)
+            .fillMaxHeight(0.1f)
     )
 }
 
