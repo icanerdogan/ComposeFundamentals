@@ -23,6 +23,19 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeFundamentalsTheme {
+                Row (
+                    modifier = Modifier
+                        .background(color = Color.LightGray)
+                        .fillMaxSize(),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    verticalAlignment = Alignment.Top
+                ) {
+                    Greeting("Ibrahim")
+                    Greeting("Can")
+                    Greeting("Erdogan")
+                }
+
+                /*
                 Column(
                     modifier = Modifier
                         .background(color = Color.LightGray)
@@ -34,6 +47,7 @@ class MainActivity : ComponentActivity() {
                     Greeting("Can")
                     Greeting("Erdogan")
                 }
+                */
 
             }
         }
@@ -43,7 +57,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String) {
     Text(
-        text = "Hello $name!",
+        text = "$name!",
         fontSize = 32.sp,
         fontWeight = FontWeight.Bold,
         color = Color.Red,
@@ -52,7 +66,6 @@ fun Greeting(name: String) {
             .background(color = Color.Yellow)
             .border(2.dp, color = Color.Green)
             .padding(10.dp)
-            .fillMaxWidth(0.8f)
             .fillMaxHeight(0.1f)
     )
 }
