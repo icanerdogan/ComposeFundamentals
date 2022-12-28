@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
@@ -18,12 +19,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.composefundamentals.ui.theme.ComposeFundamentalsTheme
 
 class ComposeStateDemo : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val viewModel = viewModel<ViewModelDemo>()
             ComposeFundamentalsTheme {
                 Column(
                     modifier = Modifier.fillMaxSize(),
@@ -31,8 +34,13 @@ class ComposeStateDemo : ComponentActivity() {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     // rememberSaveable: Save data Android recreates the activity. Shouldn't be using large amount and complex data.
-                    var count by rememberSaveable { mutableStateOf(0) }
-                    MyButtonUnidirectional(count) { count = it + 1 }
+                    //var count by rememberSaveable { mutableStateOf(0) }
+                    //MyButtonUnidirectional(count) { count = it + 1 }
+
+                    // with viewmodel.
+                    val count = viewModel.count
+                    MyButtonUnidirectional(count) { viewModel.increaseCount() }
+
                 }
             }
         }
