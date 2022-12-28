@@ -22,7 +22,7 @@
                     android:value=""/>
         </activity>
         <activity
-                android:name=".LazyColumn"
+                android:name=".ComposeStateDemo"
                 android:exported="true"
                 android:label="@string/app_name"
                 android:theme="@style/Theme.ComposeFundamentals">
