@@ -22,7 +22,7 @@
                     android:value=""/>
         </activity>
         <activity
-                android:name=".flow.FlowActivity"
+                android:name=".effecthandler.SideEffectsDemo"
                 android:exported="true"
                 android:label="@string/app_name"
                 android:theme="@style/Theme.ComposeFundamentals">
